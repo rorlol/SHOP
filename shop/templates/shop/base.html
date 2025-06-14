@@ -3,14 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
     <title>{% block title %}Мой магазин{% endblock %}</title>
 </head>
 
-<header>
-    
-</header>
-
 <body>
-    
+    <div class="header">
+        <a href="{% url 'shop:product_list' %}"> Мой магазин </a>
+
+        <div class="search_bar">
+            <form action="{% url 'shop:product_list' %}" method="get">
+                {{ search_form.query }}
+            </form>
+            <input type="submit" value="Поиск">
+        </div>
+
+    </div>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <div class="footer">
+        <p>© 2023 Мой магазин</p>
+    </div>
 </body>
 </html>
