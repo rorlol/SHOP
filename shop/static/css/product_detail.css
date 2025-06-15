@@ -1,0 +1,110 @@
+.product_detail {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    padding: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+
+.product-image-large {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    object-fit: contain;
+    box-shadow: 0 8px 25px rgba(67, 100, 247, 0.2);
+}
+
+.product_info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.product_info h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.product_info h2 {
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #516a89;
+}
+
+.product_info h2 a {
+    color: #4364f7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.product_info h2 a:hover {
+    color: #6fb1fc;
+    text-decoration: underline;
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2980b9;
+    margin-bottom: 25px;
+}
+
+.description h3 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #34495e;
+}
+
+.description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Кнопка купить */
+.product_detail button {
+    margin-top: auto; /* чтобы кнопка была внизу справа */
+    align-self: flex-start;
+    background: #4364f7;
+    border: none;
+    padding: 12px 30px;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(67, 100, 247, 0.5);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product_detail button:hover {
+    background: #6fb1fc;
+    box-shadow: 0 10px 25px rgba(111, 177, 252, 0.7);
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 768px) {
+    .product_detail {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .product-image-large {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .product_detail button {
+        align-self: center;
+        width: 100%;
+    }
+}

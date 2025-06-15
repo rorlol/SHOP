@@ -1,8 +1,32 @@
 {% extends "shop/base.html" %}
 {% load static %}
 
+{% block title %}
+    {{ product.name }}
+{% endblock %}
+
 {% block content %}
 
+    <link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
+
+    <div class="product_detail">
+        {% if product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image-large">
+        {% else %}
+            <img src="{% static 'img/no_image.png' %}" alt="Изображение отсутствует" class="product-image-large">
+        {% endif %}
+        <div class="product_info">
+            <h1>{{ product.name }}</h1>
+            <h2>Категория: <a href="{{ product.category.get_absolute_url }}">{{product.category}}</a> </h2>
+            <p class="price">${{ product.price|floatformat:2 }}</p>
+            <p>{{ product.description }}</p>
+            <div class="description">
+                <h3>Описание товара:</h3>
+                {{ product.description|linebreaks }} {# Фильтр linebreaks преобразует переносы строк в <p> и <br> #}
+            </div>
+        </div>
+        <button type="submit">Купить</button>
+    </div>
 
 
 {% endblock %}

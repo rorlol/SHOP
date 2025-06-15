@@ -2,16 +2,20 @@
 {% load static %}
 
 {% block content %}
-    <div class="category_list">
-        <h2>Категории</h2>
-        <ul>
-            {% for c in categories %}
-            <li {% if not category and not query %} class="selected" {% endif %}>
+
+    <link rel="stylesheet" href="{% static 'css/product_list.css' %}">
+
+    <h3>Категории</h3>
+    <ul>
+        <li {% if not category and not query %}class="selected"{% endif %}>
+            <a href="{% url 'shop:product_list' %}">Все</a>
+        </li>
+        {% for c in categories %}
+            <li {% if category.slug == c.slug %}class="selected"{% endif %}>
                 <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
             </li>
-            {% endfor %}
-        </ul>
-    </div>
+        {% endfor %}
+    </ul>
 
     <div id="main" class="product_list">
        <h2>

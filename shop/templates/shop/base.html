@@ -1,9 +1,11 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <title>{% block title %}Мой магазин{% endblock %}</title>
 </head>
 
@@ -14,8 +16,9 @@
         <div class="search_bar">
             <form action="{% url 'shop:product_list' %}" method="get">
                 {{ search_form.query }}
+                <input name="search"  placeholder="Введите товар">
+                <button type="submit">Найти</button>
             </form>
-            <input type="submit" value="Поиск">
         </div>
 
     </div>
@@ -26,7 +29,7 @@
     </div>
 
     <div class="footer">
-        <p>© 2023 Мой магазин</p>
+        <p>© 2025 Мой магазин</p>
     </div>
 </body>
 </html>
